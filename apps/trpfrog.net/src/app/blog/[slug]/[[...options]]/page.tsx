@@ -4,8 +4,8 @@ import { z } from 'zod'
 
 import { env } from '@/env/server.ts'
 
-import { BlogMarkdown } from '@blog/_renderer/BlogMarkdown'
-import { DevBlogMarkdown } from '@blog/_renderer/DevBlogMarkdown'
+import { BlogMarkdown } from '@blog/_components/BlogMarkdown'
+import { DevBlogMarkdown } from '@blog/_components/DevBlogMarkdown'
 import { fetchPost } from '@blog/rpc'
 
 export const dynamicParams = true

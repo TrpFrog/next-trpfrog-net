@@ -2,8 +2,6 @@ import * as path from 'path'
 
 import { Metadata } from 'next'
 
-import { MDXRemote } from 'next-mdx-remote/rsc'
-
 import { Image } from '@/components/atoms/Image'
 import { MainWrapper } from '@/components/atoms/MainWrapper'
 import { RichButton } from '@/components/atoms/RichButton'
@@ -14,10 +12,10 @@ import { A } from '@/components/wrappers'
 import { formatDateToDisplay } from '@/lib/date'
 import { readMarkdowns } from '@/lib/mdLoader'
 
-import { getMarkdownOptions } from '@blog/_renderer/rendererProperties'
-
 import { Keywords } from './Keywords'
 import { WorksFrontmatterSchema } from './schema'
+
+import { RenderMarkdown } from '@/markdown/RenderMarkdown'
 
 export const metadata = {
   title: 'Works',
@@ -52,7 +50,7 @@ export default async function Index() {
             <p>
               <b>Released:</b> {formatDateToDisplay(metadata.date)}{' '}
             </p>
-            <MDXRemote source={content} {...getMarkdownOptions()} />
+            <RenderMarkdown markdown={content} mode="block" />
             <p style={{ display: 'flex', flexFlow: 'row wrap', gap: '8px 6px' }}>
               {Object.entries(metadata.links ?? {}).map(([linkTxt, url]) => {
                 return (

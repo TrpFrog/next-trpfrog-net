@@ -22,19 +22,19 @@ export const ImageCaption = ({ children }: { children: React.ReactNode }) => (
 )
 
 async function TakenBy(props: { photographer: string }) {
-  const { RenderInlineMarkdown } = await import('@blog/_renderer/RenderInlineMarkdown')
+  const { RenderMarkdown } = await import('@/markdown/RenderMarkdown')
   return (
     <div className={styles.taken_by}>
       <small>
         <FontAwesomeIcon icon={faCamera} /> 撮影:{' '}
-        <RenderInlineMarkdown markdown={props.photographer} />
+        <RenderMarkdown markdown={props.photographer} mode="inline" />
       </small>
     </div>
   )
 }
 
 export async function BlogImage({ src, alt, style, spoiler, isVideo, ...props }: BlogImageProps) {
-  const { RenderInlineMarkdown } = await import('@blog/_renderer/RenderInlineMarkdown')
+  const { RenderMarkdown } = await import('@/markdown/RenderMarkdown')
   let caption = props.caption ?? ''
   let takenBy: string | undefined
 
@@ -58,7 +58,7 @@ export async function BlogImage({ src, alt, style, spoiler, isVideo, ...props }:
         )}
         {caption && (
           <ImageCaption>
-            <RenderInlineMarkdown markdown={caption} />
+            <RenderMarkdown markdown={caption} mode="inline" />
           </ImageCaption>
         )}
       </figure>

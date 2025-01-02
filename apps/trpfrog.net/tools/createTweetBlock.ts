@@ -12,7 +12,7 @@ import { z } from 'zod'
 
 import { formatDateToDisplay } from '@/lib/date'
 
-import { BlogTwitterArchiveSchema } from '@blog/_components/article-parts/TwitterArchive/generateTwitterArchiveProps'
+import { BlogTwitterArchiveSchema } from '@blog/_custom-components/definitions/twitter-archived/generateTwitterArchiveProps'
 
 /**
  * Beautify the tweet HTML.

@@ -13,7 +13,7 @@ import { MainWrapper } from '@/components/atoms/MainWrapper'
 import { Block } from '@/components/molecules/Block'
 
 import { ArticleHeader } from '@blog/_components/ArticleHeader'
-import { BlogMarkdown } from '@blog/_renderer/BlogMarkdown'
+import { BlogMarkdown } from '@blog/_components/BlogMarkdown'
 
 type Props = {
   params: Promise<{

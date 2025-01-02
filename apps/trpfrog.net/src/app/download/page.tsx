@@ -2,8 +2,6 @@ import * as path from 'path'
 
 import { Metadata } from 'next'
 
-import { MDXRemote } from 'next-mdx-remote/rsc'
-
 import { WorksFrontmatterSchema } from '@/app/download/schema'
 
 import { Image } from '@/components/atoms/Image'
@@ -15,7 +13,7 @@ import { A } from '@/components/wrappers'
 
 import { readMarkdowns } from '@/lib/mdLoader'
 
-import { getMarkdownOptions } from '@blog/_renderer/rendererProperties'
+import { RenderMarkdown } from '@/markdown/RenderMarkdown'
 
 export const metadata = {
   title: 'Download',
@@ -45,7 +43,7 @@ export default async function Index() {
                 />
               </div>
             )}
-            <MDXRemote source={content} {...getMarkdownOptions()} />
+            <RenderMarkdown markdown={content} mode="block" />
             <div style={{ display: 'flex', flexFlow: 'row wrap', gap: '8px 6px' }}>
               {metadata.links.map(({ href, text }) => (
                 <RichButton as={A} key={href} href={href}>
